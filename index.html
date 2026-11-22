@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digital Empowerment for All – Sustainable Consumption, Mira-Bhayandar</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<style>
+:root{--bg:#f6f8f3;--card:#fff;--text:#18291f;--muted:#5a6b60;--green:#2f7d4f;--green2:#dff0e4;--accent:#e8a33d;--line:#dbe3dc;--bar:#2f7d4f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a14;--card:#16251c;--text:#e8f1ea;--muted:#9bb0a2;--green:#5cc486;--green2:#1c3326;--accent:#f0b75a;--line:#27402f;--bar:#5cc486}}
+:root[data-theme="dark"]{--bg:#0f1a14;--card:#16251c;--text:#e8f1ea;--muted:#9bb0a2;--green:#5cc486;--green2:#1c3326;--accent:#f0b75a;--line:#27402f;--bar:#5cc486}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:10px 16px}
+header b{color:var(--green);white-space:nowrap}
+nav{display:flex;gap:14px;overflow-x:auto;font-size:14px}
+nav a{color:var(--muted);text-decoration:none;white-space:nowrap}nav a:hover{color:var(--green)}
+section{max-width:960px;margin:0 auto;padding:44px 18px}
+h1{font-size:clamp(30px,6vw,52px);line-height:1.1;margin:.3em 0}
+h2{font-size:26px;margin:0 0 6px}h3{margin:0 0 6px;font-size:17px}
+.hero{text-align:center;padding-top:56px}
+.tag{display:inline-block;background:var(--green2);color:var(--green);padding:4px 12px;border-radius:99px;font-size:13px;font-weight:600}
+.lead{color:var(--muted);max-width:640px;margin:0 auto 22px;font-size:18px}
+.btn{display:inline-block;background:var(--green);color:#fff;border:0;padding:11px 20px;border-radius:10px;font:600 15px inherit;font-family:inherit;text-decoration:none;cursor:pointer;margin:4px}
+.btn.alt{background:transparent;color:var(--green);border:1.5px solid var(--green)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.stat{font-size:34px;font-weight:700;color:var(--green);line-height:1.1}
+.sub{color:var(--muted);font-size:14px}
+.steps{counter-reset:s}.steps .card{position:relative;padding-top:34px}
+.steps .card::before{counter-increment:s;content:counter(s);position:absolute;top:-1px;left:-1px;background:var(--green);color:#fff;width:28px;height:28px;border-radius:14px 0 14px 0;text-align:center;font-weight:700;line-height:28px}
+.row{display:grid;grid-template-columns:150px 1fr 34px;gap:8px;align-items:center;font-size:14px;margin:6px 0}
+.track{background:var(--green2);border-radius:6px;height:14px;overflow:hidden}.fill{background:var(--bar);height:100%;border-radius:6px}
+.stack{display:flex;height:14px;border-radius:6px;overflow:hidden}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}td,th{padding:9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--green)}
+.chips span{display:inline-block;background:var(--green2);color:var(--green);border-radius:8px;padding:3px 10px;margin:3px 3px 0 0;font-size:13px;font-weight:600}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 18px 110px}
+/* chatbot */
+#fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;width:58px;height:58px;border-radius:50%;border:0;background:var(--green);color:#fff;font-size:26px;cursor:pointer;box-shadow:0 4px 16px #0004}
+#chat{position:fixed;right:16px;bottom:calc(86px + env(safe-area-inset-bottom,0px));z-index:20;width:min(380px,calc(100vw - 32px));height:min(520px,calc(100% - 140px));background:var(--card);border:1px solid var(--line);border-radius:16px;display:none;flex-direction:column;box-shadow:0 8px 30px #0005;overflow:hidden}
+#chat.open{display:flex}
+#chat .top{background:var(--green);color:#fff;padding:12px 14px;font-weight:600;display:flex;justify-content:space-between}
+#msgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.m{max-width:88%;padding:9px 12px;border-radius:12px;font-size:14.5px;line-height:1.45;white-space:pre-wrap}
+.m.bot{background:var(--green2);align-self:flex-start}.m.me{background:var(--green);color:#fff;align-self:flex-end}
+.qs{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 8px}.qs button{background:none;border:1px solid var(--green);color:var(--green);border-radius:99px;padding:4px 10px;font:13px inherit;font-family:inherit;cursor:pointer}
+#f{display:flex;gap:6px;padding:10px;border-top:1px solid var(--line)}
+#f input{flex:1;min-width:0;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:15px inherit;font-family:inherit}
+#f button{background:var(--green);color:#fff;border:0;border-radius:10px;padding:0 14px;font-size:16px;cursor:pointer}
+@media(max-width:560px){.row{grid-template-columns:110px 1fr 30px}}
+</style>
+</head>
+<body>
+<header><b>🌿 Digital Empowerment for All</b>
+<nav><a href="#problem">Problem</a><a href="#solution">Solution</a><a href="#results">Results</a><a href="#research">Research</a><a href="#next">Next</a></nav></header>
+
+<section class="hero">
+<span class="tag">IDEA Lab-1 · Theme: Environment</span>
+<h1>Small habits. Real impact.</h1>
+<p class="lead">A simple, low-cost digital platform that measures how college students in Mira-Bhayandar consume, and helps them live more sustainably.</p>
+<a class="btn" href="#results">See survey results</a>
+<a class="btn alt" id="askbtn" href="#" onclick="openChat();return false">Ask the assistant</a>
+<a class="btn" id="formbtn" href="#" style="display:none" target="_blank" rel="noopener">Take the survey</a>
+<p class="sub" style="margin-top:22px">Department of Artificial Intelligence and Data Science · Academic Year 2026–27 · Presented by Parvati Balwant Singh (Roll no. 41)</p>
+<div class="chips"><span>SDG 4 · Quality Education</span><span>SDG 8 · Decent Work &amp; Growth</span><span>SDG 10 · Reduced Inequalities</span></div>
+</section>
+
+<section id="problem">
+<h2>The problem</h2>
+<p>In Mira-Bhayandar, many college students may lack awareness of sustainable consumption, leading to excess waste and irresponsible resource use. There is no simple, low-cost tool for them to measure their own habits or understand what stops them from choosing eco-friendly options.</p>
+<div class="grid">
+<div class="card"><div class="stat">1.05 bn t</div><div class="sub">of food wasted worldwide in 2022 (about 19% of food available)</div></div>
+<div class="card"><div class="stat">~78 m t</div><div class="sub">wasted in India every year, second only to China</div></div>
+<div class="card"><div class="stat">61%</div><div class="sub">of global food waste happens in households, so habits matter</div></div>
+</div>
+<p class="sub">Source: UNEP Food Waste Index Report 2024</p>
+<h3 style="margin-top:22px">Why current approaches fall short</h3>
+<p>Posters and campaigns, college seminars, paper surveys and cleanliness drives all share the same gaps: no local data, low student engagement, no personal feedback, and slow manual analysis.</p>
+</section>
+
+<section id="solution">
+<h2>The solution</h2>
+<p>A lightweight website that needs no server or database and works on any phone or laptop.</p>
+<div class="grid steps">
+<div class="card"><h3>Website</h3><span class="sub">HTML + CSS front end</span></div>
+<div class="card"><h3>Google Form</h3><span class="sub">Habit survey on food, shopping, energy, waste and recycling</span></div>
+<div class="card"><h3>Google Sheets</h3><span class="sub">Responses stored automatically</span></div>
+<div class="card"><h3>Analysis</h3><span class="sub">Charts and insights from the data</span></div>
+<div class="card"><h3>Awareness</h3><span class="sub">Eco tips and feedback for students</span></div>
+</div>
+<h3 style="margin-top:22px">Objectives</h3>
+<ul>
+<li>Assess sustainable consumption practices among students</li>
+<li>Address excessive waste and irresponsible resource use</li>
+<li>Identify barriers to eco-friendly choices</li>
+<li>Analyse habits and promote sustainable lifestyles</li>
+</ul>
+</section>
+
+<section id="results">
+<h2>Survey results</h2>
+<p class="sub">Google Forms survey of college students, n = 36 (75% first-year students from engineering, commerce, IT, pharmacy and other fields). Bars show number of responses.</p>
+<div class="grid">
+<div class="card"><h3>Age group</h3><div id="c-age"></div></div>
+<div class="card"><h3>Heard of “sustainable consumption”?</h3><div id="c-heard"></div></div>
+<div class="card"><h3>Self-rated understanding (1–5)</h3><div id="c-und"></div></div>
+</div>
+<div class="card" style="margin-top:14px"><h3>Everyday habits</h3>
+<div class="sub" id="legend" style="margin-bottom:6px"></div><div id="c-habits"></div></div>
+<div class="grid">
+<div class="card"><h3>Main barriers</h3><div id="c-bar"></div></div>
+<div class="card"><h3>What would encourage students</h3><div id="c-mot"></div></div>
+<div class="card"><h3>Willingness to improve (1–5)</h3><div id="c-will"></div></div>
+</div>
+<div class="grid">
+<div class="card"><div class="stat">75%</div><div class="sub">always or often use a reusable water bottle</div></div>
+<div class="card"><div class="stat">69%</div><div class="sub">rarely or never waste food</div></div>
+<div class="card"><div class="stat">33%</div><div class="sub">always or often check environmental impact before buying</div></div>
+<div class="card"><div class="stat">64%</div><div class="sub">rate their willingness to improve 4 or 5 (50% say 5)</div></div>
+</div>
+<p><b>Key findings:</b> 69% have heard the term, but only 44% rate their understanding 4 or 5. Availability, awareness and cost are the biggest barriers, and lower prices is the top motivator. Only 11 of 36 find sustainable products affordable, and 56% think their college can help. Students suggested campus swap meets and reuse hubs, water refill stations, clearly labelled recycling bins, and discounts for reusable mugs.</p>
+</section>
+
+<section id="research">
+<h2>Research foundation</h2>
+<div class="scroll"><table>
+<tr><th>Source</th><th>Key idea</th></tr>
+<tr><td>The Limits to Growth (1972)</td><td>Exponential growth in consumption on a finite planet leads to resource limits</td></tr>
+<tr><td>The Story of Stuff (2010)</td><td>Overconsumption in the extract–produce–consume–dispose cycle drives waste</td></tr>
+<tr><td>UNEP Food Waste Index (2024)</td><td>About 61% of food waste is at household level</td></tr>
+<tr><td>UN SDG Target 4.7 (2015)</td><td>All learners should gain knowledge and skills for sustainable lifestyles</td></tr>
+</table></div>
+<p class="sub">Built with HTML5, CSS3, Google Forms and Google Sheets; hostable on GitHub Pages.</p>
+</section>
+
+<section id="next">
+<h2>Conclusion and future scope</h2>
+<p>A simple HTML/CSS and Google Forms/Sheets platform can measure habits at very low cost, and the results can guide awareness efforts that support SDGs 4, 8 and 10.</p>
+<div class="chips"><span>📱 Mobile app version</span><span>🔳 QR code posters on campus</span><span>🌐 Hindi and Marathi support</span><span>🏆 Eco badges and challenges</span></div>
+</section>
+
+<footer>© Idea Lab-1 · Dept. of AI &amp; Data Science · www.slrtce.in</footer>
+
+<button id="fab" aria-label="Open chat" onclick="openChat()">💬</button>
+<div id="chat" role="dialog" aria-label="Project assistant">
+<div class="top"><span>🌿 Eco Assistant</span><span style="cursor:pointer" onclick="openChat()">✕</span></div>
+<div id="msgs"></div>
+<div class="qs" id="qs"></div>
+<form id="f"><input id="inp" placeholder="Ask about the project…" autocomplete="off"><button>➤</button></form>
+</div>
+
+<script>
+// Add your Google Form link here to show the "Take the survey" button
+const FORM_URL = "https://docs.google.com/forms/d/1_Y8mVDe3JyplEMEgTHj8ssB0WrFjty7wPOU8bY67ZxA/viewform";
+if (FORM_URL) { const b = document.getElementById("formbtn"); b.href = FORM_URL; b.style.display = "inline-block"; }
+
+const $ = id => document.getElementById(id);
+function bars(id, rows, max) {
+  max = max || Math.max(...rows.map(r => r[1]));
+  $(id).innerHTML = rows.map(r => `<div class="row"><span>${r[0]}</span><div class="track"><div class="fill" style="width:${r[1] / max * 100}%"></div></div><b>${r[1]}</b></div>`).join("");
+}
+bars("c-age", [["Below 18", 12], ["18–20", 22], ["Above 23", 2]]);
+bars("c-heard", [["Yes", 25], ["No", 7], ["Not sure", 4]]);
+bars("c-und", [["1", 8], ["2", 5], ["3", 7], ["4", 10], ["5", 6]]);
+bars("c-bar", [["Not easily available", 16], ["Lack of awareness", 15], ["Expensive", 13], ["Actions don’t matter", 9], ["Lack of motivation", 7], ["Lack of time", 7], ["Habit / preference", 7], ["Inconvenient", 6]], 16);
+bars("c-mot", [["Lower prices", 21], ["Awareness / education", 17], ["Easy availability", 17], ["College campaigns", 14], ["Rewards / incentives", 13], ["Better impact info", 10], ["Habit recommendations", 9], ["Nothing in particular", 4]], 21);
+bars("c-will", [["1", 2], ["2", 2], ["3", 9], ["4", 5], ["5", 18]]);
+
+const cols = ["#2f7d4f", "#6fb88a", "#e8c76a", "#e8a33d", "#c9553d"];
+$("legend").innerHTML = ["Always", "Often", "Sometimes", "Rarely", "Never"].map((l, i) => `<span style="color:${cols[i]}">●</span> ${l} `).join("");
+const habits = [["Reusable bottle", [15, 12, 6, 1, 2]], ["Reusable bags", [10, 12, 8, 6, 0]], ["Waste food", [4, 2, 5, 14, 11]], ["Buy things not needed", [2, 3, 12, 12, 7]], ["Separate waste", [14, 6, 9, 2, 5]], ["Check environmental impact", [8, 4, 15, 4, 5]]];
+$("c-habits").innerHTML = habits.map(h => `<div class="row" style="grid-template-columns:150px 1fr"><span>${h[0]}</span><div class="stack">${h[1].map((v, i) => `<div title="${v}" style="width:${v / 36 * 100}%;background:${cols[i]}"></div>`).join("")}</div></div>`).join("");
+
+/* ---------- Chatbot ---------- */
+const KB = `PROJECT: "Digital Empowerment for All" – IDEA Lab-1 (Innovation Design Engineering and Apply), course code 12122110, Dept. of Artificial Intelligence and Data Science, academic year 2026-27. Theme: Environment. Presented by Parvati Balwant Singh, Roll no 41. Website: www.slrtce.in.
+PROBLEM: College students in Mira-Bhayandar may lack awareness of sustainable consumption, causing waste and resource overuse. No simple, low-cost digital tool exists to measure habits or barriers.
+GLOBAL FACTS (UNEP Food Waste Index 2024): 1.05 billion tonnes of food wasted in 2022 (~19% of food available); India wastes ~78 million tonnes a year (2nd after China); 61% of food waste is at household level.
+SOLUTION: Website (HTML+CSS) -> Google Form habit survey (food, shopping, energy, waste, recycling) -> Google Sheets stores responses -> analysis with charts -> awareness via eco tips and feedback. Low cost, no server or database, works on any phone or laptop. Tech: HTML5, CSS3, Google Forms, Google Sheets, optional GitHub Pages hosting; no backend programming needed.
+OBJECTIVES: assess sustainable consumption practices; address excess waste; identify barriers to eco-friendly choices; analyse habits and promote sustainable lifestyles. Supports UN SDG 4 (Quality Education), SDG 8 (Decent Work & Economic Growth), SDG 10 (Reduced Inequalities).
+EXISTING SYSTEMS & LIMITS: posters/campaigns (no local data), college seminars (low engagement), paper surveys (no personal feedback), government cleanliness drives (slow manual analysis).
+LITERATURE: The Limits to Growth (Meadows et al., 1972); The Story of Stuff (Annie Leonard, 2010); UNEP Food Waste Index Report 2024; UN SDG Target 4.7 (2015).
+SURVEY (Google Forms, n=36, 75% first-year students from engineering, commerce, IT, pharmacy etc.): Age: below 18 =12, 18-20 =22, above 23 =2. Heard of sustainable consumption: yes 25, no 7, not sure 4 (69% yes). Self-rated understanding 1-5: 8,5,7,10,6 (44% rate 4 or 5).
+HABITS (Always/Often/Sometimes/Rarely/Never): reusable bottle 15/12/6/1/2 (75% always/often); reusable bags 10/12/8/6/0 (61%); waste food 4/2/5/14/11 (69% rarely/never); buy unneeded things 2/3/12/12/7; separate waste 14/6/9/2/5; check environmental impact 8/4/15/4/5 (only 33% always/often; 42% only sometimes).
+BARRIERS: not easily available 16, lack of awareness 15, expensive 13, my actions don't matter 9, lack of motivation 7, lack of time 7, habit/preference 7, inconvenient 6.
+MOTIVATORS: lower prices 21, awareness/education 17, easy availability 17, college campaigns 14, rewards/incentives 13, better impact info 10, habit recommendations 9, nothing 4.
+WILLINGNESS to improve (1-5): 2,2,9,5,18 -> 64% rate 4 or 5, 50% say 5. Only 11 of 36 find sustainable products affordable; 56% think college can help, 42% unsure. Suggestions: campus swap meets/reuse hubs, water refill stations, labelled recycling bins, discounts for reusable mugs, awareness campaigns.
+FUTURE SCOPE: mobile app, QR code posters on campus, Hindi and Marathi support, eco badges and challenges.`;
+
+const SYS = `You are the friendly Eco Assistant on the website for the project below. Answer questions about the project using ONLY the facts provided. For general sustainability tips (reducing waste, saving energy, eco-friendly shopping, student-budget ideas) you may give brief practical advice and connect it to the survey findings where relevant. If asked something unrelated or not covered, say so politely and steer back. Keep answers under 90 words, plain text, no markdown.\n\n${KB}`;
+
+const hist = [];
+const msgs = $("msgs"), inp = $("inp");
+let busy = false, sample = null, started = false;
+
+function add(text, who) {
+  const d = document.createElement("div");
+  d.className = "m " + who; d.textContent = text;
+  msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight; return d;
+}
+function openChat() {
+  $("chat").classList.toggle("open");
+  if (!started) {
+    started = true;
+    add("Hi! I’m the Eco Assistant. Ask me about this project, the survey results, or how to live more sustainably as a student.", "bot");
+    ["What is this project about?", "What are the main barriers?", "How can I reduce waste?"].forEach(q => {
+      const b = document.createElement("button"); b.textContent = q; b.type = "button";
+      b.onclick = () => { $("qs").innerHTML = ""; send(q); }; $("qs").appendChild(b);
+    });
+  }
+  if ($("chat").classList.contains("open")) inp.focus();
+}
+
+// Offline fallback if Claude isn’t available in this view
+const FAQ = [
+  [/barrier|stop|hinder|problem.*students/, "The top barriers were products not being easily available (16 of 36), lack of awareness (15) and high prices (13)."],
+  [/encourag|motivat|incentiv|price/, "Lower prices topped the list (21 of 36), followed by more awareness and easy availability (17 each) and college campaigns (14)."],
+  [/survey|result|respon|found|finding/, "36 students responded. 69% have heard of sustainable consumption, but only 44% rate their understanding 4 or 5. 64% are highly willing to improve their habits."],
+  [/tech|built|html|css|google|sheet|form|cost/, "The site uses HTML5 and CSS3, with Google Forms for the survey and Google Sheets for storage and charts. No server or database is needed."],
+  [/sdg|goal|united nations|un /, "The project supports UN SDG 4 (Quality Education), SDG 8 (Decent Work & Economic Growth) and SDG 10 (Reduced Inequalities)."],
+  [/future|next|app|marathi|hindi|badge/, "Future scope: a mobile app, QR code posters on campus, Hindi and Marathi support, and eco badges and challenges."],
+  [/waste|reduce|tip|save/, "Easy wins: carry a reusable bottle and bag, plan meals to avoid food waste, separate waste at home, and check whether you really need something before buying."],
+  [/what|about|project|idea|why/, "This project measures how college students in Mira-Bhayandar consume, using a simple website with a Google Form survey, then promotes sustainable habits through awareness and feedback."]
+];
+function fallback(q) {
+  const m = FAQ.find(f => f[0].test(q.toLowerCase()));
+  return m ? m[1] : "I can answer questions about the project’s problem, solution, survey results, tech and goals. Try asking about the main barriers!";
+}
+
+async function send(q) {
+  if (busy || !q.trim()) return;
+  busy = true; add(q, "me"); inp.value = "";
+  hist.push({ role: "user", content: q });
+  const out = add("…", "bot");
+  try {
+    if (!sample) sample = await claude.use("sample");
+    if (!sample) throw { code: "none" };
+    const input = hist.map((m, i) => i === 0 ? { role: "user", content: SYS + "\n\nQuestion: " + m.content } : m);
+    const r = await sample(input, { cache: false, modelTier: "quick", onText: ({ text }) => { out.textContent = text; msgs.scrollTop = msgs.scrollHeight; } });
+    out.textContent = r.text; hist.push({ role: "assistant", content: r.text });
+  } catch (e) {
+    const t = fallback(q); out.textContent = t; hist.push({ role: "assistant", content: t });
+  }
+  busy = false;
+}
+$("f").addEventListener("submit", e => { e.preventDefault(); $("qs").innerHTML = ""; send(inp.value); });
+</script>
+</body>
+</html>
